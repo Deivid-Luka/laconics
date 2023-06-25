@@ -1,16 +1,15 @@
 package com.laconics.schoolService.controller;
 
-import com.laconics.schoolService.DTO.Authentification.AuthenticationDTO;
-import com.laconics.schoolService.entity.User;
-import com.laconics.schoolService.exception.CustomExceptions;
+import com.laconics.schoolService.DTO.authentification.AuthenticationDTO;
 import com.laconics.schoolService.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.management.relation.RoleNotFoundException;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/public")

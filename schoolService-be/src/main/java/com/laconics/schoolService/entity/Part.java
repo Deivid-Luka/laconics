@@ -2,6 +2,8 @@ package com.laconics.schoolService.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Part {
     @Id
@@ -21,6 +23,9 @@ public class Part {
 
     @Column(name = "stock")
     private int stock;
+
+    @OneToMany(mappedBy = "part", cascade = CascadeType.ALL)
+    private List<Ticket> tickets;
 
 
     public Long getId() {
@@ -61,5 +66,13 @@ public class Part {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }

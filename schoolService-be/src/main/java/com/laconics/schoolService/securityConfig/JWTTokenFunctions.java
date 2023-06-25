@@ -1,6 +1,6 @@
 package com.laconics.schoolService.securityConfig;
 
-import com.laconics.schoolService.DTO.Authentification.JWTValues;
+import com.laconics.schoolService.DTO.authentification.JWTValues;
 import com.laconics.schoolService.securityConfig.filter.Constants.SecurityConstants;
 
 import io.jsonwebtoken.Claims;

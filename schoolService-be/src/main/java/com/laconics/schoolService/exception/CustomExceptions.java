@@ -16,4 +16,11 @@ public class CustomExceptions {
 
     }
 
+    public static class ItemSavingFailedException extends RuntimeException {
+        public ItemSavingFailedException(String message) {
+            super(message);
+        }
+
+    }
+
 }

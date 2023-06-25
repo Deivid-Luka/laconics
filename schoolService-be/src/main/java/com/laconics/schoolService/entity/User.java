@@ -3,6 +3,8 @@ package com.laconics.schoolService.entity;
 import jakarta.persistence.*;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+import java.util.List;
+
 @Entity
 public class User {
     @Id
@@ -18,6 +20,9 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "id")
     private Role role;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Ticket> tickets;
 
 
     public Long getId() {
@@ -50,6 +55,15 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 
     public SimpleGrantedAuthority getAuthorities(){

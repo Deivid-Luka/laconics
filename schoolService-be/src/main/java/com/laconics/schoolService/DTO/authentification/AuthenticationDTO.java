@@ -1,4 +1,4 @@
-package com.laconics.schoolService.DTO.Authentification;
+package com.laconics.schoolService.DTO.authentification;
 
 
 public class AuthenticationDTO {
