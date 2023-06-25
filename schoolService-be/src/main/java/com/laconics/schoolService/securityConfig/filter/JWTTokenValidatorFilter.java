@@ -8,6 +8,8 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,10 +25,14 @@ public class JWTTokenValidatorFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        String jwt = request.getHeader(SecurityConstants.JWT_HEADER).substring(7);
+        String jwtHeader = request.getHeader(SecurityConstants.JWT_HEADER);
+        if (jwtHeader == null || !jwtHeader.startsWith("Bearer ")) {
+            sendErrorResponse(response, "Invalid Token received!", HttpStatus.UNAUTHORIZED);
+            return;
+        }
+        String jwt = jwtHeader.substring(7);
         try {
-            SecretKey key = Keys.hmacShaKeyFor(
-                    SecurityConstants.JWT_KEY.getBytes(StandardCharsets.UTF_8));
+            SecretKey key = Keys.hmacShaKeyFor(SecurityConstants.JWT_KEY.getBytes(StandardCharsets.UTF_8));
 
             Claims claims = Jwts.parserBuilder()
                     .setSigningKey(key)
@@ -39,11 +45,18 @@ public class JWTTokenValidatorFilter extends OncePerRequestFilter {
                     AuthorityUtils.commaSeparatedStringToAuthorityList(authorities));
             SecurityContextHolder.getContext().setAuthentication(auth);
         } catch (Exception e) {
-            throw new BadCredentialsException("Invalid Token received!");
+            sendErrorResponse(response, "Invalid Token received!", HttpStatus.UNAUTHORIZED);
+            return;
         }
 
         filterChain.doFilter(request, response);
     }
+
+    private void sendErrorResponse(HttpServletResponse response, String message, HttpStatus httpStatus) throws IOException {
+        response.setStatus(httpStatus.value());
+        response.getWriter().write(message);
+    }
+
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {

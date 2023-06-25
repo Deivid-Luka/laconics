@@ -36,16 +36,16 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User save(User user) throws RoleNotFoundException,CustomExceptions.UserExistsException {
+    public void save(User user) throws RoleNotFoundException, CustomExceptions.ItemExistsException {
         User existingUser = userRepository.findByUsername(user.getUsername());
         if (existingUser != null) {
-            throw new CustomExceptions.UserExistsException("User already exists");
+            throw new CustomExceptions.ItemExistsException("User already exists");
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Role role = roleRepository.findById(2L).orElseThrow(() -> new RoleNotFoundException("Role not found"));
         user.setRole(role);
-        return userRepository.save(user);
+        userRepository.save(user);
     }
 
 

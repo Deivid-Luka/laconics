@@ -9,6 +9,6 @@ import javax.management.relation.RoleNotFoundException;
 public interface UserService {
     String authenticate(AuthenticationDTO authenticationDto);
 
-    User save(User user) throws RoleNotFoundException, CustomExceptions.UserExistsException;
+    void save(User user) throws RoleNotFoundException, CustomExceptions.ItemExistsException;
 
 }

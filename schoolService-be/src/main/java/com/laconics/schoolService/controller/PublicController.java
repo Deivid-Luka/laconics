@@ -30,15 +30,4 @@ public class PublicController {
         headers.add("Authorization", userService.authenticate(user));
         return new ResponseEntity<>("OK", headers, HttpStatus.OK);
     }
-
-    @PostMapping("/user")
-    public ResponseEntity<String> saveUser(@RequestBody User user){
-        try {
-            userService.save(user);
-            return new ResponseEntity<>("OK", HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
-
 }
