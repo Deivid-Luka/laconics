@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "9e6bc7a1-ae81-463a-bb43-6d1828b0613e",
+		"name": "School Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27906744"
+	},
+	"item": [
+		{
+			"name": "Save User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"user\",\r\n    \"password\":\"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/public/admin/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"public",
+						"admin",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"user\",\r\n    \"password\":\"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/public/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"public",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Part",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsYWNvbmljcyIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTY4NzcwODU5MCwiZXhwIjoxNjg3NzM4NTkwfQ.TcvWkULixOE7jf-6ZH4p4HyuqVUW-P_0-HBKdvR6ynSMSrTTVI4bSKGbf5-3qSbsSLXmmrN5r7j8xPUj1-Rutg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\":\"laptop keyboard\",\r\n    \"name\":\"hpKeyboard2300\",\r\n    \"price\":99.5,\r\n    \"stock\":30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/part",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"part"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Part",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsYWNvbmljcyIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTY4NzcwODU5MCwiZXhwIjoxNjg3NzM4NTkwfQ.TcvWkULixOE7jf-6ZH4p4HyuqVUW-P_0-HBKdvR6ynSMSrTTVI4bSKGbf5-3qSbsSLXmmrN5r7j8xPUj1-Rutg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\":\"laptop keyboard for hp23\",\r\n    \"name\":\"hpKeyboard2300\",\r\n    \"price\":99.5,\r\n    \"stock\":30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/part",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"part"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Part",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsYWNvbmljcyIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTY4NzcwODU5MCwiZXhwIjoxNjg3NzM4NTkwfQ.TcvWkULixOE7jf-6ZH4p4HyuqVUW-P_0-HBKdvR6ynSMSrTTVI4bSKGbf5-3qSbsSLXmmrN5r7j8xPUj1-Rutg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/admin/part/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"part",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Parts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsYWNvbmljcyIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTY4NzcxMDQ1NywiZXhwIjoxNjg3NzQwNDU3fQ.tFvxY-v3SzCP4s-guvP0DFpoysThqUlQZyqHNDCNx9bx3RisTvQuTlQ_Z-Ljw3KN08oEM3Ik1Va9WpGvPGuG6A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/admin/part",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"part"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Part",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsYWNvbmljcyIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTY4NzcxMDQ1NywiZXhwIjoxNjg3NzQwNDU3fQ.tFvxY-v3SzCP4s-guvP0DFpoysThqUlQZyqHNDCNx9bx3RisTvQuTlQ_Z-Ljw3KN08oEM3Ik1Va9WpGvPGuG6A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/admin/part/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"part",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user tickets",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsYWNvbmljcyIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoidXNlciIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE2ODc3MzE1OTIsImV4cCI6MTY4Nzc2MTU5Mn0.dt-Jjz2tUtpXeDSCfOHuHYtzrSoxL_XPlU263sKtF9LNbczllwYhhkBOTAFhJ8XbyWjymVqBmXNVuZkXztjsBQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/ticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create ticker for user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsYWNvbmljcyIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoidXNlcjIiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg3NzMxODc3LCJleHAiOjE2ODc3NjE4Nzd9._l0o_23d7UTf6gP5D80tAolQsmHDvC4xlMqaNJ_znDAYlTggXRICEQC-o2vUDMqIu3yauG0ONdfTrcX0A6bz2g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"part\":3,\r\n    \"description\":\"Broken screen\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/ticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Ticket",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsYWNvbmljcyIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTY4NzczMjA5NSwiZXhwIjoxNjg3NzYyMDk1fQ.lTzD7Jr_9TODbmtv0DIoH-k2M938AAJdSEyCWBTjV-Vd-eZ_fwkmCSXDvZhCeoOoBEOU9ZXb8yF1DHfEgvVH1g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"part\":1,\r\n    \"description\":\"Another issue\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/ticket/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"ticket",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all tickets for user on admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsYWNvbmljcyIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTY4NzczMjA5NSwiZXhwIjoxNjg3NzYyMDk1fQ.lTzD7Jr_9TODbmtv0DIoH-k2M938AAJdSEyCWBTjV-Vd-eZ_fwkmCSXDvZhCeoOoBEOU9ZXb8yF1DHfEgvVH1g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\":\"user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/user/ticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"user",
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close Ticker",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsYWNvbmljcyIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTY4NzczMjA5NSwiZXhwIjoxNjg3NzYyMDk1fQ.lTzD7Jr_9TODbmtv0DIoH-k2M938AAJdSEyCWBTjV-Vd-eZ_fwkmCSXDvZhCeoOoBEOU9ZXb8yF1DHfEgvVH1g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/admin/close/ticket/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"close",
+						"ticket",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
